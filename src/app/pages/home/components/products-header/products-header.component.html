@@ -1,0 +1,49 @@
+
+
+<mat-card class="mb-4 p-2">
+    <section class="flex justify-between">
+        <section>
+
+        <button mat-button [matMenuTriggerFor]="sortByMenu">
+            Sort by {{sort}}
+            <mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #sortByMenu="matMenu">
+
+            <button (click)="onSortUpdated('desc')" mat-menu-item>desc</button>
+            <button (click)="onSortUpdated('asc')" mat-menu-item>asc</button>
+        </mat-menu>
+
+        </section>
+
+        <section class="flex items-center">
+            <section>
+                <button mat-button [matMenuTriggerFor]="menu">
+                    Näytä {{itemShowCount}}
+                    <mat-icon>expand_more</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button (click)="onItemsUpdated(12)" mat-menu-item>12</button>
+                    <button (click)="onItemsUpdated(24)" mat-menu-item>24</button>
+                    <button (click)="onItemsUpdated(36)" mat-menu-item>36</button>
+                </mat-menu>
+            </section>
+
+<!--NAPPULAT joilla säädetään näkyvyys kehikkoa-->
+<!-- 1 = näytä vain 1 item per rivi jne -->
+
+            <button (click)="onColumnsUpdated(1)">
+                <mat-icon class="kehikko-color">view_list</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(3)">
+                <mat-icon class="kehikko-color">view_module</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(4)">
+                <mat-icon class="kehikko-color">view_comfy</mat-icon>
+            </button>
+
+        </section>
+
+    </section>
+
+</mat-card>

@@ -1,0 +1,53 @@
+<mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
+<a routerLink="home">Code with pizzatilaus!</a>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+
+<!--alapuolella se pieni pallukka ostoskorissa kun lisätty tuote!-->
+<mat-icon 
+[matBadge] = "itemsQuantity"
+[matBadgeHidden] = "!itemsQuantity"
+matBadgeColor="warn"
+>
+    
+    shopping_cart</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <section class="p-3 divide-y divide-solid">
+        <section class="pb-3 flex justify-between">
+                <span class="mr-16">{{itemsQuantity}} Tuotetta</span>
+                <a routerLink="cart">View Cart</a>
+        </section>
+
+        <section *ngIf="cart.items.length" class="py-3">
+            <section 
+                *ngFor="let item of cart.items"
+            class="flex justify-between font-light mb-2">
+                {{item.name}} x {{item.quantity}}
+                <span class="font-bold">{{ item.price | currency:'EUR'}}</span>
+            </section>
+        </section>
+
+
+
+        <section class="flex justify-between py-3 font-light">
+            Yhteensä: 
+            <span class="font-bold">{{  getTotal(cart.items) | currency:'EUR'}}</span>
+        </section>
+        <section class="pt-3 flex justify-between">
+            <button 
+            (click)="onClearCart()"
+            class="bg-rose-600 text-white rounded-full w-9 h-9">
+                <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
+            <button 
+            routerLink="cart"
+            class="bg-green-600 text-white rounded-full w-9 h-9">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </section>
+
+    </section>
+
+
+</mat-menu>
+</mat-toolbar>
