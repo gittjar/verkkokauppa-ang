@@ -2,9 +2,21 @@
 class="min-h-full max-w-7xl mx-auto border-x"
 >
 
-    <mat-drawer mode="side" opened class="p-6">
+    <mat-drawer mode="side" opened class="p-5">
+ <!-- Keskellä chippi boxien säädöt -->
+<app-filters
 
-<app-filters (showCategory)="onShowCategory($event)"></app-filters>
+            (showCategory)="onShowCategory($event)"
+            (naytaKaikkiTuotteet)="onShowKaikkiTuotteet($event)"    
+            (sortPizzas)="onShowPizzaCategory($event)"
+            (sortBurgers)="onShowBurgerCategory($event)"
+            (sortSnacks)="onShowSnackCategory($event)"
+            (sortDrinks)="onShowDrinkCategory($event)"
+            (sortMaterial)="onShowAllMaterials($event)"
+            
+           
+>
+</app-filters>
 
     </mat-drawer>
     <mat-drawer-content class="p-6">
@@ -12,24 +24,40 @@ class="min-h-full max-w-7xl mx-auto border-x"
         <app-products-header
         (sortChange)="onSortChange($event)"
         (itemsCountChange)="onItemsCountChange($event)"
-        (columnsCountChange)="onColumnsCountChange($event)"></app-products-header>
-<mat-grid-list
-        gutterSize="16"
+        (columnsCountChange)="onColumnsCountChange($event)"
+        ></app-products-header>
+
+
+      
+
+        <mat-grid-list
+        
+
+        gutterSize="15"
         [cols]="cols"
         [rowHeight]="rowHeight"
 >
         <mat-grid-tile *ngFor="let product of products">
             <!--TUOTEBOX-->
                 <!--    (addToCart)="onAddToCart($event)" -->
-            <app-product-box 
+            <app-product-box
+            
+
             [product]="product"
             (addToCart)="onAddToCart($event)" 
             class="w-full" 
             [fullWidthMode]="cols === 1"></app-product-box>
         </mat-grid-tile>
+        </mat-grid-list>
+
+<!-- MATERIALS 
 
 
+<app-material-box></app-material-box>
 
-</mat-grid-list>
+-->
+
+
+       
     </mat-drawer-content>
 </mat-drawer-container>

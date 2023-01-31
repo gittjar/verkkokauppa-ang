@@ -1,0 +1,10 @@
+mat-chip-listbox {
+    max-width: 150px;
+  }
+
+.linkki {
+  color:rgb(39, 39, 242);
+}
+.linkki:hover {
+  background-color: rgb(227, 238, 248);
+}

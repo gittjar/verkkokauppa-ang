@@ -1,14 +1,23 @@
-<mat-toolbar class="max-w-7xl mx-auto border-x justify-between">
-<a routerLink="home">Code with pizzatilaus!</a>
-<button mat-icon-button [matMenuTriggerFor]="menu">
+<section class="hero-image max-w-7xl mx-auto">
+    <section class="hero-text">
+      <h1 style="font-size:50px">Code the pizzatilaus! Jarno</h1>
+      <p>Pasilan parhaat pizzat ja burgerit!</p>
+      <button>I'm button!</button>
+    </section>
+</section>
 
-<!--alapuolella se pieni pallukka ostoskorissa kun lisätty tuote!-->
+<mat-toolbar class="max-w-7xl mx-auto border-x justify-between valikko">
+<ul>
+<li><a routerLink="home">Verkkokauppaan <mat-icon>arrow_forward</mat-icon></a></li>
+<li><a routerLink="materials">Raaka-aineet <mat-icon>arrow_forward</mat-icon></a></li>
+</ul>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+<!--ostoskärry ja alapuolella se pieni pallukka ostoskorissa kun lisätty tuote!-->
 <mat-icon 
 [matBadge] = "itemsQuantity"
 [matBadgeHidden] = "!itemsQuantity"
 matBadgeColor="warn"
 >
-    
     shopping_cart</mat-icon>
 </button>
 <mat-menu #menu="matMenu">

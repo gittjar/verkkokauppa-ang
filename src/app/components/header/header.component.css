@@ -1,0 +1,65 @@
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url("https://digital.pictures.fi/kuvat/pizzatilaus-pic-db/mexicana-pizza.jpg/_full.jpg");
+    height: 35%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*alempi lukittaa kuvan paikoilleen*/
+    background-attachment: fixed;
+
+  }
+  
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  .hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .hero-text button:hover {
+    background-color: #555;
+    color: white;
+  }
+
+  .valikko{
+    height: 120px;
+  }
+
+  li {
+    background-color: rgb(109, 42, 172);
+    color: white;
+    font-style: italic;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-top: 3px;
+    box-shadow: 3px 3px 3px 1px rgba(60, 60, 247, 0.4);
+  }
+
+li:hover {
+  background-color: rgb(130, 52, 204);
+  color: white;
+  font-style: italic;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 13px;
+  padding-right: 13px;
+  margin-top: 3px;
+  box-shadow: 3px 3px 3px 1px rgba(60, 60, 247, 0.4);
+  }

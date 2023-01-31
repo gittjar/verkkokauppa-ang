@@ -1,23 +1,33 @@
 
 
-<mat-card class="mb-4 p-2">
+<mat-card class="mb-4 p-3"  >
     <section class="flex justify-between">
-        <section>
 
+        
+        <section>
         <button mat-button [matMenuTriggerFor]="sortByMenu">
-            Sort by {{sort}}
+            Alasvetovalikko {{sort}}
             <mat-icon>expand_more</mat-icon>
         </button>
-        <mat-menu #sortByMenu="matMenu">
-
+        <mat-menu #sortByMenu="matMenu" >
+            <!--
             <button (click)="onSortUpdated('desc')" mat-menu-item>desc</button>
             <button (click)="onSortUpdated('asc')" mat-menu-item>asc</button>
-        </mat-menu>
+                -->
+            <button mat-stroked-button>{{showMore}}</button>
+            <button mat-raised-button>{{showMore2}}</button>
+            <button mat-menu-item>{{itemShowCount}}</button>
 
+
+        </mat-menu>
         </section>
+    
+
 
         <section class="flex items-center">
-            <section>
+
+            
+           <!-- <section>
                 <button mat-button [matMenuTriggerFor]="menu">
                     Näytä {{itemShowCount}}
                     <mat-icon>expand_more</mat-icon>
@@ -27,7 +37,7 @@
                     <button (click)="onItemsUpdated(24)" mat-menu-item>24</button>
                     <button (click)="onItemsUpdated(36)" mat-menu-item>36</button>
                 </mat-menu>
-            </section>
+            </section> -->
 
 <!--NAPPULAT joilla säädetään näkyvyys kehikkoa-->
 <!-- 1 = näytä vain 1 item per rivi jne -->
@@ -38,12 +48,42 @@
             <button (click)="onColumnsUpdated(3)">
                 <mat-icon class="kehikko-color">view_module</mat-icon>
             </button>
+
+
+
+
+            <!-- 4 vierekkäin!
             <button (click)="onColumnsUpdated(4)">
                 <mat-icon class="kehikko-color">view_comfy</mat-icon>
             </button>
+            -->
 
         </section>
 
+        <span>Since 2023</span>
+     <!--  <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="raaka-aineet">
+            <mat-chip-option (click)="onShowMaterials(showMaterial)" color="warn">Raaka-aineet</mat-chip-option>
+          </mat-chip-listbox>
+          --> 
+
+
+<!--
+
+          <mat-accordion  *ngFor="let material of materials">
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    
+                </mat-panel-title>
+                <mat-panel-description>
+                  Lisätiedot {{panelOpenState ? 'täytteet' : 'katso'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>{{material.name}}</p>
+            </mat-expansion-panel>
+          </mat-accordion>  
+-->
     </section>
 
 </mat-card>

@@ -2,7 +2,7 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevetaion-z8 w-full">
 
         <ng-container matColumnDef="product">
-            <th mat-header-cell *matHeaderCellDef>Tuotenimi</th>
+            <th mat-header-cell *matHeaderCellDef>Tilauksesi yhteenveto</th>
             <td mat-cell *matCellDef="let element">
             <img src="{{ element.product }}" alt="product" class="w-[100px] my-5" />
         </td>
@@ -11,12 +11,14 @@
             </td>
         </ng-container>
 
+
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Nimi</th>
+            <th mat-header-cell *matHeaderCellDef>Tuote</th>
             <td mat-cell *matCellDef="let element">
             <span class="truncate max-w-xs block">{{element.name}}</span>
              </td>
             <td mat-footer-cell *matFooterCellDef>
+                <span>Ilmainen kuljetus alueilla</span>
             </td>
         </ng-container>
 
@@ -26,7 +28,7 @@
             {{element.price | currency:'EUR'}}
              </td>
             <td mat-footer-cell *matFooterCellDef>
-            </td>
+            <span>Pasila +3km</span></td>
         </ng-container>
 
         <ng-container matColumnDef="quantity">
@@ -39,7 +41,7 @@
                     <mat-icon>remove</mat-icon>
                 </button>
 
-           <span>{{element.quantity}}</span> 
+           <span class="font-bold py-5">{{element.quantity}}</span> 
 
            <button 
            (click)="onAddQuantity(element)"
@@ -49,6 +51,9 @@
 
              </td>
             <td mat-footer-cell *matFooterCellDef>
+             <span class="font-bold py-5 block">
+                Vero 14% : ({{ getTotal(cart.items) * 0.14 | currency:'EUR' }})
+             </span>
             </td>
         </ng-container>
 
@@ -83,7 +88,7 @@
             </td>
         </ng-container>
 
-<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr class="ostoskori_style_header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 

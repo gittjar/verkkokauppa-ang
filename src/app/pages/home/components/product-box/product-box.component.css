@@ -1,0 +1,54 @@
+.taustat {
+    background-color: rgb(245, 242, 251);
+    border: 1px solid darkblue;
+}
+
+.chip-style {
+    background-color: rgb(109, 42, 172);
+    color: white;
+    font-style: italic;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-top: 3px;
+    box-shadow: 3px 3px 3px 1px rgba(60, 60, 247, 0.4);
+  }
+
+
+
+h2:hover {
+    color: rgb(109, 42, 172);
+}
+
+.hintalappu {
+    border: 1px solid black;
+    padding: 6px;
+    margin-top: 3px;
+    border-radius: 14px;
+    box-shadow: 3px 3px 2px 1px rgba(60, 60, 247, 0.2);
+}
+
+.btn-osta {
+   
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 6px;
+    margin-top: 3px;
+    border-radius: 14px;
+
+    box-shadow: 3px 3px 2px 1px rgba(60, 60, 247, 0.2);
+    
+}
+
+.btn-osta:hover {
+
+    background-color: rgb(227, 220, 252);
+    color: rgb(1, 42, 3);
+    cursor: pointer;
+}
+
+.mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 3px;
+  }
+  

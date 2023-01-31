@@ -1,14 +1,52 @@
+<!--
 <mat-expansion-panel *ngIf="categories">
 <mat-expansion-panel-header>
+-->
 <mat-panel-title>
-    Categories
+    Tuotealueet
 </mat-panel-title>
+<!--
 </mat-expansion-panel-header>
-
+-->
 <mat-selection-list [multiple]="false">
     <mat-list-option *ngFor="let category of categories" [value]="category">
         <button (click)="onShowGategory(category)">{{category}}</button>
     </mat-list-option>
 </mat-selection-list>
 
+<mat-chip-listbox class="mat-mdc-chip-set-stacked" ngModel="foodselection"x>
+    <mat-chip-option value="allproducts" selected (click)="onShowKaikkiTuotteet(showKaikki)">Kaikki tuotteet</mat-chip-option>
+    <mat-chip-option value="pizzas" (click)="onShowPizzas(showPizza)" color="primary">Pizzas</mat-chip-option>
+    <mat-chip-option value="burgers" (click)="onShowBurgers(showBurger)" color="primary">Burgers</mat-chip-option>
+    <mat-chip-option value="snacks" (click)="onShowSnacks(showSnack)" class="primary">Sides & Snacks</mat-chip-option>
+    <mat-chip-option value="drinks" (click)="onShowDrinks(showDrink)" color="primary">Drinks</mat-chip-option>
+    <mat-chip-option (click)="onShowMaterials(kaikkimateriaalit)" disabled>I'm disabled now</mat-chip-option>
+  </mat-chip-listbox>
+<br>
+<article>
+    <mat-icon> fastfood</mat-icon>
+    <b>Pizza ja Hampurilainen</b><br>
+    Kauppakeskus Tripla
+    <br>
+    Pasilan Asema-aukio 1<br>
+    00520 Helsinki
+    <br><br>
+    <b>Avoinna tänään:</b><br>
+    10 - 22<br>
+    <b>Kuljetusajat tänään:</b><br>
+    10 - 22
+    <br><br>
+    <b>Kuljetus ilmainen:</b><br>
+    <span class="linkki"><a href="https://www.maps.ie/draw-radius-circle-map/?lat=60.19901390274489&lng=24.93252754211426&radius=3084.7357929266836">Pasila +3km!</a></span>
+
+
+
+</article>
+  
+
+
+
+
+<!--
 </mat-expansion-panel>
+-->

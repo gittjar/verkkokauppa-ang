@@ -1,6 +1,17 @@
 
-<mat-card *ngIf="product" [ngClass]="{'text-center' : !fullWidthMode}">
-    <section [ngClass]="{flex: fullWidthMode}">
+
+
+
+<mat-card class="taustat" *ngIf="product"  [ngClass]="{'text-center' : !fullWidthMode}">
+
+    <section class="flex justify-between px-6">
+
+    <!--tuote, ei näytetä fullwidthmodessa-->
+        <p *ngIf="!fullWidthMode" class="chip-style">{{product.id}}. {{product.title}} </p>
+
+    </section>
+    <section  [ngClass]="{flex: fullWidthMode}">
+        
         <img class="mb-1 mx-auto h-[200px]" 
         [ngClass]="{'h-200px': !fullWidthMode, 'h-[360px]': fullWidthMode}"
         [src]="product.image"
@@ -8,15 +19,50 @@
         <article class="w-full"
         [ngClass]="{'px-8 flex flex-col justify-between': fullWidthMode}">
             <article>
-                <h5>{{product.category}}</h5>Tuotekuvaus: 
-                <p class="truncate hover:whitespace-normal">{{product.title}} </p>
-              <p *ngIf="fullWidthMode">{{product.description}}</p>
+            <!--
+                <h2 class="truncate hover:whitespace-normal">{{product.id}}. {{product.title}} </h2>
+                -->
+                <!--
+               
+-->
+                <!--tuotekuvaus ja täytteet näytetään vain fullwidth modessa eli alekkain listassa -->
+                    <h2><p *ngIf="fullWidthMode" class="truncate hover:whitespace-normal" class="chip-style">
+                        <mat-icon>keyboard_arrow_right</mat-icon> {{product.id}}. {{product.title}}. </p></h2>
+                        <h2><p *ngIf="fullWidthMode" class="truncate hover:whitespace-normal" class="chip-style">
+                           <mat-icon>keyboard_arrow_right</mat-icon> {{product.description}}</p></h2>
+                           <h2><p *ngIf="fullWidthMode" class="truncate hover:whitespace-normal" class="chip-style">
+                            <mat-icon>keyboard_arrow_right</mat-icon> {{product.information}}</p></h2>
+
+
+                        <mat-accordion *ngIf="!fullWidthMode" class="truncate hover:whitespace-normal" >
+                            <mat-expansion-panel (opened)="panelOpenState = true"
+                                                 (closed)="panelOpenState = false">
+                              <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                  Lisätiedot {{panelOpenState ? 'täytteet' : 'katso'}}
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                              <p>{{product.description}}</p>
+                            </mat-expansion-panel>
+                          </mat-accordion>     
+
+
+             <!-- <p *ngIf="fullWidthMode">{{product.description}}</p> -->
+
             </article>
-            <article class="flex justify-between">
-                <span class="text-red-400">{{ product.price | currency:'EUR'}}</span>
-                <button (click)="onAddToCart()">
-                    <mat-icon class="text-gray-400">shopping_cart</mat-icon>
-                </button>
+            <article class="flex justify-between px-4">
+             <p class="hintalappu text-red-500">{{ product.price | currency:'EUR'}}</p>
+             <p class="btn-osta" (click)="onAddToCart()">
+                 Osta <i class="fa-solid fa-arrow-right-long"></i></p>
+                    <!--
+                    <mat-icon class="text-green-500 block">shopping_basket</mat-icon>
+                -->
+               
+            
+            
             </article>
 
         </article>
@@ -24,3 +70,4 @@
 
 
 </mat-card>
+
