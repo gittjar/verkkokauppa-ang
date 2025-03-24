@@ -93,6 +93,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "pizzatilaus:build:production",
+            "firebaseProject": "angular-web-applications",
+            "firebaseHostingSite": "pizza-pasila"
+          }
         }
       }
     }
